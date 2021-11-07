@@ -45,8 +45,29 @@ public class Main {
 
         TeacherService teacherService = new TeacherService();
         List<Teacher> teachers = teacherService.getTeachers();
-        teacherService.addNewSchool(teachers.get(0), schools.get(0));
+        try {
+            teacherService.addNewSchool(teachers.get(0), schools.get(0));
+            teacherService.addNewSchool(teachers.get(0), schools.get(0));
+            teacherService.addNewCourse(teachers.get(0), courses.get(0));
+            teacherService.addNewCourse(teachers.get(0), courses.get(0));
+        } catch (Exception e) {
+            System.out.println(e.getLocalizedMessage());
+            printStar();
+        }
+
+        try {
+            teacherService.addNewCourse(teachers.get(0), courses.get(0));
+            teacherService.addNewCourse(teachers.get(0), courses.get(0));
+        } catch (Exception e) {
+            System.out.println(e.getLocalizedMessage());
+            printStar();
+        }
+
+        System.out.println("all schools for " + teachers.get(0) + " is:");
         teachers.get(0).getSchool().forEach(System.out::println);
+        System.out.println("and courses:");
+        teachers.get(0).getCourse().forEach(System.out::println);
+
 
 
 
@@ -91,11 +112,14 @@ public class Main {
 
     }
 
-/*    private static void addTeacher() {
-        System.out.println("enter name:");
-    }
+    /*    private static void addTeacher() {
+            System.out.println("enter name:");
+        }
 
-    private static void printInvalidInput() {
-        System.out.println("invalid input");
-    }*/
+        private static void printInvalidInput() {
+            System.out.println("invalid input");
+        }*/
+    private static void printStar() {
+        System.out.println("***************************************************************");
+    }
 }

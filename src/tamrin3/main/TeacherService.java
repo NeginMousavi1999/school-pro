@@ -1,9 +1,6 @@
 package tamrin3.main;
 
-import tamrin3.FullTimeTeacher;
-import tamrin3.PartTimeTeacher;
-import tamrin3.School;
-import tamrin3.Teacher;
+import tamrin3.*;
 import tamrin3.enums.Degree;
 
 import java.util.ArrayList;
@@ -36,11 +33,19 @@ public class TeacherService {
         teachers.add(teacher);
     }
 
-    public Set<School> addNewSchool(Teacher teacher, School school) { //اینجا لازم نیست که آپشنال بذارم چون مطمئنم که نال برنمیگردونه
+    public Set<School> addNewSchool(Teacher teacher, School school) { // اینجا لازم نیست که آپشنال بذارم چون مطمئنم که نال برنمیگردونه
         Set<School> teacherSchools = teacher.getSchool();
         if (teacherSchools.contains(school))
             throw new RuntimeException("this teacher already has this school");
         teacherSchools.add(school);
         return teacherSchools;
+    }
+
+    public Set<Course> addNewCourse(Teacher teacher, Course course) { //اینجا هم مثل بالا
+        Set<Course> teacherCourses = teacher.getCourse();
+        if (teacherCourses.contains(course))
+            throw new RuntimeException("this teacher already has this course");
+        teacherCourses.add(course);
+        return teacherCourses;
     }
 }
