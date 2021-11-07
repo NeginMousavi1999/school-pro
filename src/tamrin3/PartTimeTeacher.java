@@ -20,6 +20,7 @@ public class PartTimeTeacher extends Teacher {
         super(name, lastName, personalNumber, degree, school, experienceYear, course, age);
         this.hourlySalary = hourlySalary;
         this.hourPerMonth = hourPerMonth;
+        this.setType(TeacherType.PART_TIME);
     }
 
     public int getHourlySalary() {

@@ -17,6 +17,7 @@ public class FullTimeTeacher extends Teacher {
                            Integer experienceYear, Set<Course> course, int age, double baseSalary) {
         super(name, lastName, personalNumber, degree, school, experienceYear, course, age);
         this.baseSalary = baseSalary;
+        this.setType(TeacherType.FULL_TIME);
     }
 
     public double getBaseSalary() {
