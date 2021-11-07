@@ -57,6 +57,7 @@ public class PartTimeTeacher extends Teacher {
                 ", age=" + this.getName() +
                 ", hourlySalary=" + hourlySalary +
                 ", hourPerMonth=" + hourPerMonth +
+                ", Salary=" + this.getSalary() +
                 '}';
     }
 }
