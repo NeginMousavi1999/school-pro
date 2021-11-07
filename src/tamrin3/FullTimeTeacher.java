@@ -42,7 +42,7 @@ public class FullTimeTeacher extends Teacher {
                 ", personalNumber='" + this.getPersonalNumber() + '\'' +
                 ", degree=" + this.getDegree().toString() +
                 ", experienceYear=" + this.getExperienceYear() +
-                ", age=" + this.getName() +
+                ", age=" + this.getAge() +
                 ", Salary=" + this.printSalary() +
                 '}';
     }
