@@ -28,5 +28,15 @@ public class TeacherService {
                 15, new HashSet<>(), 38, 5200000));
     }
 
+    public void addNewTeacher(Teacher teacher) {
+        teachers.add(teacher);
+    }
 
+    public Set<School> addNewSchool(Teacher teacher, School school) { //اینجا لازم نیست که آپشنال بذارم چون مطمئنم که نال برنمیگردونه
+        Set<School> teacherSchools = teacher.getSchool();
+        if (teacherSchools.contains(school))
+            throw new RuntimeException("this teacher already has this school");
+        teacherSchools.add(school);
+        return teacherSchools;
+    }
 }
