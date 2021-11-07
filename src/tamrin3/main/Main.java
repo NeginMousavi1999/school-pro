@@ -4,6 +4,9 @@ import tamrin3.Course;
 import tamrin3.School;
 import tamrin3.Teacher;
 
+import java.math.BigDecimal;
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;

@@ -15,9 +15,9 @@ public class TeacherService {
 
     public TeacherService() {
         teachers.add(new PartTimeTeacher("negin", "mousavi", "0021899436", Degree.BS, new HashSet<>(),
-                2, new HashSet<>(), 22, 120, 120));
+                2, new HashSet<>(), 22, 120000, 120));
         teachers.add(new PartTimeTeacher("negarin", "mousavi", "0021234567", Degree.BS, new HashSet<>(),
-                0, new HashSet<>(), 14, 40, 50));
+                0, new HashSet<>(), 14, 40000, 50));
         teachers.add(new FullTimeTeacher("nayer", "koosheshtabar", "1111234567", Degree.MA, new HashSet<>(),
                 28, new HashSet<>(), 49, 6200000));
         teachers.add(new FullTimeTeacher("sahar", "kaveh", "1121234567", Degree.BS, new HashSet<>(),

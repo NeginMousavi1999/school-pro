@@ -3,6 +3,8 @@ package tamrin3;
 import tamrin3.enums.Degree;
 import tamrin3.enums.TeacherType;
 
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
 import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
@@ -138,6 +140,11 @@ public abstract class Teacher {
 
     protected final Double calculateInsurance(Double salary) {
         return salary * 0.07;
+    }
+
+    protected String printSalary() {
+        NumberFormat formatter = new DecimalFormat("");
+        return formatter.format(this.salary);
     }
 
     @Override
