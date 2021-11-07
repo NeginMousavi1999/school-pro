@@ -2,11 +2,10 @@ package tamrin3.main;
 
 import tamrin3.*;
 import tamrin3.enums.Degree;
+import tamrin3.enums.TeacherType;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
+import java.util.stream.Collectors;
 
 /**
  * @author Negin Mousavi
@@ -16,9 +15,9 @@ public class TeacherService {
 
     public TeacherService() {
         teachers.add(new PartTimeTeacher("negin", "mousavi", "0021899436", Degree.BS, new HashSet<>(),
-                2, new HashSet<>(), 22, 100, 100));
+                2, new HashSet<>(), 22, 120, 120));
         teachers.add(new PartTimeTeacher("negarin", "mousavi", "0021234567", Degree.BS, new HashSet<>(),
-                0, new HashSet<>(), 14, 120, 50));
+                0, new HashSet<>(), 14, 40, 50));
         teachers.add(new FullTimeTeacher("nayer", "koosheshtabar", "1111234567", Degree.MA, new HashSet<>(),
                 28, new HashSet<>(), 49, 6200000));
         teachers.add(new FullTimeTeacher("sahar", "kaveh", "1121234567", Degree.BS, new HashSet<>(),
@@ -47,5 +46,22 @@ public class TeacherService {
             throw new RuntimeException("this teacher already has this course");
         teacherCourses.add(course);
         return teacherCourses;
+    }
+
+    public Double getAllAvrSalary() {
+        Double sum = teachers.stream().map(Teacher::getSalary).reduce(0D, Double::sum);
+        int count = teachers.size();
+        return sum / count;
+    }
+
+    public Double getFullTimeAvrSalary() {
+        Double sum = teachers.stream().filter(t -> t.getType().equals(TeacherType.FULL_TIME)).map(Teacher::getSalary)
+                .reduce(0D, Double::sum);
+        int count = (int) teachers.stream().filter(t -> t.getType().equals(TeacherType.FULL_TIME)).count();
+        return sum / count;
+    }
+
+    public List<Teacher> getTeachersWithHigherThanAverageFullTimeTeachersSalaries() {
+        return teachers.stream().filter(t -> t.getSalary() > getFullTimeAvrSalary()).collect(Collectors.toList());
     }
 }

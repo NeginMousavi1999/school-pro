@@ -67,6 +67,10 @@ public class Main {
         teachers.get(0).getSchool().forEach(System.out::println);
         System.out.println("and courses:");
         teachers.get(0).getCourse().forEach(System.out::println);
+        printStar();
+
+        System.out.println("AVG of full time : " + teacherService.getFullTimeAvrSalary() + "\nmore than avg:");
+        teacherService.getTeachersWithHigherThanAverageFullTimeTeachersSalaries().forEach(System.out::println);
 
 
 
