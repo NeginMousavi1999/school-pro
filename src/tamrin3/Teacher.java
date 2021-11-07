@@ -17,6 +17,7 @@ public abstract class Teacher {
     private Set<Course> course = new HashSet<>();
     private int age;
     private TeacherType type;  // نوع معلم : تمام وقت و پاره وقت
+    private double salary;
 
 /*    public Teacher(String name, String lastName, String personalNumber) {
         this.name = name;
@@ -106,6 +107,14 @@ public abstract class Teacher {
 
     public void setType(TeacherType type) {
         this.type = type;
+    }
+
+    public double getSalary() {
+        return salary;
+    }
+
+    public void setSalary(double salary) {
+        this.salary = salary;
     }
 
     public abstract Double calculateSalary();

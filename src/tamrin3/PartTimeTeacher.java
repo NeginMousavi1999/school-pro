@@ -16,11 +16,12 @@ public class PartTimeTeacher extends Teacher {
     }*/
 
     public PartTimeTeacher(String name, String lastName, String personalNumber, Degree degree, Set<School> school,
-                 Integer experienceYear, Set<Course> course, int age, int hourlySalary, int hourPerMonth) {
+                           Integer experienceYear, Set<Course> course, int age, int hourlySalary, int hourPerMonth) {
         super(name, lastName, personalNumber, degree, school, experienceYear, course, age);
         this.hourlySalary = hourlySalary;
         this.hourPerMonth = hourPerMonth;
         this.setType(TeacherType.PART_TIME);
+        this.setSalary(hourlySalary * hourPerMonth);
     }
 
     public int getHourlySalary() {
