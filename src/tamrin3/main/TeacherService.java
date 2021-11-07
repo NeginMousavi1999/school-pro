@@ -18,10 +18,16 @@ public class TeacherService {
                 2, new HashSet<>(), 22, 120000, 120));
         teachers.add(new PartTimeTeacher("negarin", "mousavi", "0021234567", Degree.BS, new HashSet<>(),
                 0, new HashSet<>(), 14, 40000, 50));
+        teachers.add(new PartTimeTeacher("ali", "alavi", "1131234567", Degree.PHD, new HashSet<>(),
+                10, new HashSet<>(), 35, 150000, 20));
         teachers.add(new FullTimeTeacher("nayer", "koosheshtabar", "1111234567", Degree.MA, new HashSet<>(),
                 28, new HashSet<>(), 49, 6200000));
         teachers.add(new FullTimeTeacher("sahar", "kaveh", "1121234567", Degree.BS, new HashSet<>(),
                 15, new HashSet<>(), 38, 5200000));
+        teachers.add(new FullTimeTeacher("sepide", "kaveh", "1141234567", Degree.MA, new HashSet<>(),
+                10, new HashSet<>(), 40, 4800000));
+        teachers.add(new FullTimeTeacher("zahra", "esmaeili", "1151234567", Degree.BS, new HashSet<>(),
+                10, new HashSet<>(), 21, 4200000));
     }
 
     public List<Teacher> getTeachers() {
@@ -63,5 +69,9 @@ public class TeacherService {
 
     public List<Teacher> getTeachersWithHigherThanAverageFullTimeTeachersSalaries() {
         return teachers.stream().filter(t -> t.getSalary() > getFullTimeAvrSalary()).collect(Collectors.toList());
+    }
+
+    public Map<TeacherType, List<Teacher>> getTeachersWithTenExperienceYear() {
+        return teachers.stream().filter(t -> t.getExperienceYear() == 10).collect(Collectors.groupingBy(Teacher::getType));
     }
 }

@@ -3,12 +3,14 @@ package tamrin3.main;
 import tamrin3.Course;
 import tamrin3.School;
 import tamrin3.Teacher;
+import tamrin3.enums.TeacherType;
 
 import java.math.BigDecimal;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.Scanner;
 
 public class Main {
@@ -74,6 +76,9 @@ public class Main {
 
         System.out.println("AVG of full time : " + teacherService.getFullTimeAvrSalary() + "\nmore than avg:");
         teacherService.getTeachersWithHigherThanAverageFullTimeTeachersSalaries().forEach(System.out::println);
+        printStar();
+
+        teacherService.getTeachersWithTenExperienceYear().forEach((i, j) -> System.out.println(i + ":" + j));
 
 
 
