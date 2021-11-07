@@ -45,4 +45,18 @@ public class PartTimeTeacher extends Teacher {
         double baseSalary = hourlySalary * hourPerMonth;
         return baseSalary - super.calculateInsurance(baseSalary) - super.calculateTax(baseSalary);
     }
+
+    @Override
+    public String toString() {
+        return "PartTimeTeacher{" +
+                "name='" + this.getName() + '\'' +
+                ", lastName='" + this.getLastName() + '\'' +
+                ", personalNumber='" + this.getPersonalNumber() + '\'' +
+                ", degree=" + this.getDegree().toString() +
+                ", experienceYear=" + this.getExperienceYear() +
+                ", age=" + this.getName() +
+                ", hourlySalary=" + hourlySalary +
+                ", hourPerMonth=" + hourPerMonth +
+                '}';
+    }
 }
