@@ -5,8 +5,11 @@ import tamrin3.School;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class Main {
+
+    static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
 
@@ -39,6 +42,27 @@ public class Main {
         schools.add(new School("jalal", 1));
         schools.add(new School("diba", 1));
 
+/*        while (true) {
+            System.out.println("1.add new teacher\n2.exit");
+            int choice = scanner.nextInt();
+            switch (choice) {
+                case 1:
+                    addTeacher();
+                    break;
+                case 2:
+                    break;
+                default:
+                    printInvalidInput();
+            }
+        }*/
+
     }
 
+/*    private static void addTeacher() {
+        System.out.println("enter name:");
+    }
+
+    private static void printInvalidInput() {
+        System.out.println("invalid input");
+    }*/
 }

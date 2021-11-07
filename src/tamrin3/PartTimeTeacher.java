@@ -1,11 +1,23 @@
 package tamrin3;
 
+import tamrin3.enums.Degree;
+import tamrin3.enums.TeacherType;
+
+import java.util.Set;
+
 public class PartTimeTeacher extends Teacher {
     private int hourlySalary;
     private int hourPerMonth;
 
-    public PartTimeTeacher(String name, String lastName, String personalCode, int hourPerMonth, int hourlySalary) {
+/*    public PartTimeTeacher(String name, String lastName, String personalCode, int hourPerMonth, int hourlySalary) {
         super(name, lastName, personalCode);
+        this.hourlySalary = hourlySalary;
+        this.hourPerMonth = hourPerMonth;
+    }*/
+
+    public PartTimeTeacher(String name, String lastName, String personalNumber, Degree degree, Set<School> school,
+                 Integer experienceYear, Set<Course> course, int age, int hourlySalary, int hourPerMonth) {
+        super(name, lastName, personalNumber, degree, school, experienceYear, course, age);
         this.hourlySalary = hourlySalary;
         this.hourPerMonth = hourPerMonth;
     }
