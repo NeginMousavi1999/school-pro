@@ -28,6 +28,10 @@ public class TeacherService {
                 15, new HashSet<>(), 38, 5200000));
     }
 
+    public List<Teacher> getTeachers() {
+        return teachers;
+    }
+
     public void addNewTeacher(Teacher teacher) {
         teachers.add(teacher);
     }

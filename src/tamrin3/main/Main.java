@@ -2,6 +2,7 @@ package tamrin3.main;
 
 import tamrin3.Course;
 import tamrin3.School;
+import tamrin3.Teacher;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -41,6 +42,38 @@ public class Main {
         schools.add(new School("razavi", 3));
         schools.add(new School("jalal", 1));
         schools.add(new School("diba", 1));
+
+        TeacherService teacherService = new TeacherService();
+        List<Teacher> teachers = teacherService.getTeachers();
+        teacherService.addNewSchool(teachers.get(0), schools.get(0));
+        teachers.get(0).getSchool().forEach(System.out::println);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /*        while (true) {
             System.out.println("1.add new teacher\n2.exit");
