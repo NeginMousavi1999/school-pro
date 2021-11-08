@@ -74,4 +74,10 @@ public class TeacherService {
     public Map<TeacherType, List<Teacher>> getTeachersWithTenExperienceYear() {
         return teachers.stream().filter(t -> t.getExperienceYear() == 10).collect(Collectors.groupingBy(Teacher::getType));
     }
+
+    public List<Teacher> getPartTimeTeachersWithBSDegreeAndMoreThanTwoSchoolDegree() {
+        return teachers.stream().filter(t -> t.getType().equals(TeacherType.PART_TIME))
+                .filter(t -> t.getDegree().equals(Degree.BS))
+                .filter(t -> t.getSchool().stream().anyMatch(school -> school.getDegree() >= 2)).collect(Collectors.toList());
+    }
 }

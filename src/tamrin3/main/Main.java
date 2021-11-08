@@ -3,15 +3,8 @@ package tamrin3.main;
 import tamrin3.Course;
 import tamrin3.School;
 import tamrin3.Teacher;
-import tamrin3.enums.TeacherType;
 
-import java.math.BigDecimal;
-import java.text.DecimalFormat;
-import java.text.NumberFormat;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.Scanner;
+import java.util.*;
 
 public class Main {
 
@@ -50,28 +43,29 @@ public class Main {
 
         TeacherService teacherService = new TeacherService();
         List<Teacher> teachers = teacherService.getTeachers();
+        Teacher t1 = teachers.get(0);
         try {
-            teacherService.addNewSchool(teachers.get(0), schools.get(0));
-            teacherService.addNewSchool(teachers.get(0), schools.get(0));
-            teacherService.addNewCourse(teachers.get(0), courses.get(0));
-            teacherService.addNewCourse(teachers.get(0), courses.get(0));
+            teacherService.addNewSchool(t1, schools.get(0));
+            teacherService.addNewSchool(t1, schools.get(0));
+            teacherService.addNewCourse(t1, courses.get(0));
+            teacherService.addNewCourse(t1, courses.get(0));
         } catch (Exception e) {
             System.out.println(e.getLocalizedMessage());
             printStar();
         }
 
         try {
-            teacherService.addNewCourse(teachers.get(0), courses.get(0));
-            teacherService.addNewCourse(teachers.get(0), courses.get(0));
+            teacherService.addNewCourse(t1, courses.get(0));
+            teacherService.addNewCourse(t1, courses.get(0));
         } catch (Exception e) {
             System.out.println(e.getLocalizedMessage());
             printStar();
         }
 
-        System.out.println("all schools for " + teachers.get(0) + " is:");
-        teachers.get(0).getSchool().forEach(System.out::println);
+        System.out.println("all schools for " + t1 + " is:");
+        t1.getSchool().forEach(System.out::println);
         System.out.println("and courses:");
-        teachers.get(0).getCourse().forEach(System.out::println);
+        t1.getCourse().forEach(System.out::println);
         printStar();
 
         System.out.println("AVG of full time : " + teacherService.getFullTimeAvrSalary() + "\nmore than avg:");
@@ -79,6 +73,26 @@ public class Main {
         printStar();
 
         teacherService.getTeachersWithTenExperienceYear().forEach((i, j) -> System.out.println(i + ":" + j));
+        printStar();
+
+        //negin part-time schools: 1,1,1
+        t1.getSchool().add(schools.get(0));
+        t1.getSchool().add(schools.get(4));
+        t1.getSchool().add(schools.get(5));
+
+        //negarin schools: 3,1
+        Teacher t2 = teachers.get(1);
+        t2.getSchool().add(schools.get(2));
+        t2.getSchool().add(schools.get(0));
+
+        //nayer full-time schools: 2,1,1
+        Teacher t3 = teachers.get(3);
+        t3.getSchool().add(schools.get(1));
+        t3.getSchool().add(schools.get(4));
+        t3.getSchool().add(schools.get(5));
+
+        teacherService.getPartTimeTeachersWithBSDegreeAndMoreThanTwoSchoolDegree().forEach(System.out::println);
+
 
 
 
