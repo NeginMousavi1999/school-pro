@@ -91,8 +91,14 @@ public class Main {
         t3.getSchool().add(schools.get(4));
         t3.getSchool().add(schools.get(5));
 
+//        teacherService.setTeachers(teachers);
         teacherService.getPartTimeTeachersWithBSDegreeAndMoreThanTwoSchoolDegree().forEach(System.out::println);
+        printStar();
+//        teacherService.teachers.stream().map(Teacher::getSchool).forEach(System.out::println);
 
+
+        //"razavi", 3 nabayad chap she! chon moalemi nadaratesh
+        teacherService.getSchoolsWithTeacherInSystem().forEach(System.out::println);
 
 
 

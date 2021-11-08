@@ -5,6 +5,7 @@ import tamrin3.enums.Degree;
 import tamrin3.enums.TeacherType;
 
 import java.util.*;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 
 /**
@@ -32,6 +33,10 @@ public class TeacherService {
 
     public List<Teacher> getTeachers() {
         return teachers;
+    }
+
+    public void setTeachers(List<Teacher> teachers) {
+        this.teachers = teachers;
     }
 
     public void addNewTeacher(Teacher teacher) {
@@ -80,4 +85,14 @@ public class TeacherService {
                 .filter(t -> t.getDegree().equals(Degree.BS))
                 .filter(t -> t.getSchool().stream().anyMatch(school -> school.getDegree() >= 2)).collect(Collectors.toList());
     }
+
+    public Set<School> getSchoolsWithTeacherInSystem() {
+        Set<Set<School>> schoolsSet = teachers.stream().filter(t -> !t.getSchool().isEmpty()).map(Teacher::getSchool).collect(Collectors.toSet());
+        Set<School> schools = new HashSet<>();
+        for (Set<School> schoolSet : schoolsSet) {
+            schools.addAll(schoolSet);
+        }
+        return schools;
+    }
+
 }
