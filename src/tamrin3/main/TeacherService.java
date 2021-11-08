@@ -5,7 +5,6 @@ import tamrin3.enums.Degree;
 import tamrin3.enums.TeacherType;
 
 import java.util.*;
-import java.util.function.Function;
 import java.util.stream.Collectors;
 
 /**
@@ -95,4 +94,12 @@ public class TeacherService {
         return schools;
     }
 
+    public Map<School, List<Teacher>> returnPairsArrangedSchoolNameAndTeacherList(List<School> schools) {
+        Map<School, List<Teacher>> map = new HashMap<>();
+        for (School school : schools) {
+            List<Teacher> schoolTeachers = teachers.stream().filter(t -> t.getSchool().contains(school)).collect(Collectors.toList());
+            map.put(school, schoolTeachers);
+        }
+        return map;
+    }
 }
