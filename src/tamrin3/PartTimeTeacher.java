@@ -9,12 +9,6 @@ public class PartTimeTeacher extends Teacher {
     private int hourlySalary;
     private int hourPerMonth;
 
-/*    public PartTimeTeacher(String name, String lastName, String personalCode, int hourPerMonth, int hourlySalary) {
-        super(name, lastName, personalCode);
-        this.hourlySalary = hourlySalary;
-        this.hourPerMonth = hourPerMonth;
-    }*/
-
     public PartTimeTeacher(String name, String lastName, String personalNumber, Degree degree, Set<School> school,
                            Integer experienceYear, Set<Course> course, int age, int hourlySalary, int hourPerMonth) {
         super(name, lastName, personalNumber, degree, school, experienceYear, course, age);
@@ -24,20 +18,20 @@ public class PartTimeTeacher extends Teacher {
         this.setSalary(hourlySalary * hourPerMonth);
     }
 
-    public int getHourlySalary() {
-        return hourlySalary;
-    }
-
     public void setHourlySalary(int hourlySalary) {
         this.hourlySalary = hourlySalary;
     }
 
-    public int getHourPerMonth() {
-        return hourPerMonth;
-    }
-
     public void setHourPerMonth(int hourPerMonth) {
         this.hourPerMonth = hourPerMonth;
+    }
+
+    public int getHourlySalary() {
+        return hourlySalary;
+    }
+
+    public int getHourPerMonth() {
+        return hourPerMonth;
     }
 
     @Override

@@ -9,20 +9,20 @@ public class School {
         this.degree = degree;
     }
 
-    public String getName() {
-        return name;
-    }
-
     public void setName(String name) {
         this.name = name;
     }
 
-    public int getDegree() {
-        return degree;
-    }
-
     public void setDegree(int degree) {
         this.degree = degree;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getDegree() {
+        return degree;
     }
 
     @Override

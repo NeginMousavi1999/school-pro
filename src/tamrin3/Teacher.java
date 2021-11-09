@@ -21,12 +21,6 @@ public abstract class Teacher {
     private TeacherType type;  // نوع معلم : تمام وقت و پاره وقت
     private double salary;
 
-/*    public Teacher(String name, String lastName, String personalNumber) {
-        this.name = name;
-        this.lastName = lastName;
-        this.personalNumber = personalNumber;
-    }*/
-
     public Teacher(String name, String lastName, String personalNumber, Degree degree, Set<School> school, Integer experienceYear,
                    Set<Course> course, int age) {
         this.name = name;
@@ -39,84 +33,84 @@ public abstract class Teacher {
         this.age = age;
     }
 
-    public String getName() {
-        return name;
-    }
-
     public void setName(String name) {
         this.name = name;
-    }
-
-    public String getLastName() {
-        return lastName;
     }
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
 
-    public String getPersonalNumber() {
-        return personalNumber;
-    }
-
     public void setPersonalNumber(String personalNumber) {
         this.personalNumber = personalNumber;
-    }
-
-    public Degree getDegree() {
-        return degree;
     }
 
     public void setDegree(Degree degree) {
         this.degree = degree;
     }
 
-    public Set<School> getSchool() {
-        return school;
-    }
-
     public void setSchool(Set<School> school) {
         this.school = school;
-    }
-
-    public Integer getExperienceYear() {
-        return experienceYear;
     }
 
     public void setExperienceYear(Integer experienceYear) {
         this.experienceYear = experienceYear;
     }
 
-    public Set<Course> getCourse() {
-        return course;
-    }
-
     public void setCourse(Set<Course> course) {
         this.course = course;
-    }
-
-    public int getAge() {
-        return age;
     }
 
     public void setAge(int age) {
         this.age = age;
     }
 
-    public TeacherType getType() {
-        return type;
-    }
-
     public void setType(TeacherType type) {
         this.type = type;
     }
 
-    public double getSalary() {
-        return salary;
-    }
-
     public void setSalary(double salary) {
         this.salary = salary;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public String getPersonalNumber() {
+        return personalNumber;
+    }
+
+    public Degree getDegree() {
+        return degree;
+    }
+
+    public Set<School> getSchool() {
+        return school;
+    }
+
+    public Integer getExperienceYear() {
+        return experienceYear;
+    }
+
+    public Set<Course> getCourse() {
+        return course;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public TeacherType getType() {
+        return type;
+    }
+
+    public double getSalary() {
+        return salary;
     }
 
     public abstract Double calculateSalary();

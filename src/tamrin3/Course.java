@@ -11,26 +11,21 @@ public class Course {
         this.courseNumber = courseNumber;
     }
 
-    public Course(String name) {
-        this.name = name;
-    }
-
-    public String getName() {
-        return name;
-    }
-
     public void setName(String name) {
         this.name = name;
-    }
-
-    public int getCourseNumber() {
-        return courseNumber;
     }
 
     public void setCourseNumber(int courseNumber) {
         this.courseNumber = courseNumber;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public int getCourseNumber() {
+        return courseNumber;
+    }
 
     @Override
     public boolean equals(Object o) {
@@ -48,6 +43,6 @@ public class Course {
 
     @Override
     public String toString() {
-        return "{"+ name + ": " + courseNumber + '}';
+        return "{" + name + ": " + courseNumber + '}';
     }
 }

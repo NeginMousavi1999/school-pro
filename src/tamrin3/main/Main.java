@@ -79,10 +79,11 @@ public class Main {
         teacherService.getPartTimeBSMoreThanTwoSchoolDegree().forEach(System.out::println);
         printStar();
 
-        //"razavi", 3 nabayad print beshe! chon moalemi nadaratesh
+        //("razavi", 3) nabayad print beshe! chon moalemi nadaratesh
         teacherService.getSchoolsInSystem().forEach(System.out::println);
         printStar();
 
+        //("razavi", 3) bayad khali bashe chon moalemi nadaratesh
         teacherService.getSchoolMappedToTeachers(schools).forEach((i, j) -> System.out.println(i + ":" + j));
     }
 
