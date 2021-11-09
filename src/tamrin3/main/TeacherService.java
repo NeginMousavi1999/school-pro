@@ -34,14 +34,6 @@ public class TeacherService {
         return teachers;
     }
 
-    public void setTeachers(List<Teacher> teachers) {
-        this.teachers = teachers;
-    }
-
-    public void addNewTeacher(Teacher teacher) {
-        teachers.add(teacher);
-    }
-
     public Set<School> addNewSchool(Teacher teacher, School school) { // اینجا لازم نیست که آپشنال بذارم چون مطمئنم که نال برنمیگردونه
         Set<School> teacherSchools = teacher.getSchool();
         if (teacherSchools.contains(school))
@@ -58,12 +50,6 @@ public class TeacherService {
         return teacherCourses;
     }
 
-    public Double getAllAvrSalary() {
-        Double sum = teachers.stream().map(Teacher::getSalary).reduce(0D, Double::sum);
-        int count = teachers.size();
-        return sum / count;
-    }
-
     public Double getFullTimeAvrSalary() {
         Double sum = teachers.stream().filter(t -> t.getType().equals(TeacherType.FULL_TIME)).map(Teacher::getSalary)
                 .reduce(0D, Double::sum);
@@ -71,35 +57,33 @@ public class TeacherService {
         return sum / count;
     }
 
-    public List<Teacher> getTeachersWithHigherThanAverageFullTimeTeachersSalaries() {
+    public List<Teacher> getHigherThanAverageFullTime() {
         return teachers.stream().filter(t -> t.getSalary() > getFullTimeAvrSalary()).collect(Collectors.toList());
     }
 
-    public Map<TeacherType, List<Teacher>> getTeachersWithTenExperienceYear() {
+    public Map<TeacherType, List<Teacher>> getTenExperienceYear() {
         return teachers.stream().filter(t -> t.getExperienceYear() == 10).collect(Collectors.groupingBy(Teacher::getType));
     }
 
-    public List<Teacher> getPartTimeTeachersWithBSDegreeAndMoreThanTwoSchoolDegree() {
+    public List<Teacher> getPartTimeBSMoreThanTwoSchoolDegree() {
         return teachers.stream().filter(t -> t.getType().equals(TeacherType.PART_TIME))
                 .filter(t -> t.getDegree().equals(Degree.BS))
                 .filter(t -> t.getSchool().stream().anyMatch(school -> school.getDegree() >= 2)).collect(Collectors.toList());
     }
 
-    public Set<School> getSchoolsWithTeacherInSystem() {
+    public Set<School> getSchoolsInSystem() {
         Set<Set<School>> schoolsSet = teachers.stream().filter(t -> !t.getSchool().isEmpty()).map(Teacher::getSchool).collect(Collectors.toSet());
         Set<School> schools = new HashSet<>();
-        for (Set<School> schoolSet : schoolsSet) {
-            schools.addAll(schoolSet);
-        }
+        schoolsSet.forEach(schools::addAll);
         return schools;
     }
 
-    public Map<School, List<Teacher>> returnPairsArrangedSchoolNameAndTeacherList(List<School> schools) {
+    public Map<School, List<Teacher>> getSchoolMappedToTeachers(List<School> schools) {
         Map<School, List<Teacher>> map = new HashMap<>();
-        for (School school : schools) {
+        schools.forEach(school -> {
             List<Teacher> schoolTeachers = teachers.stream().filter(t -> t.getSchool().contains(school)).collect(Collectors.toList());
             map.put(school, schoolTeachers);
-        }
+        });
         return map;
     }
 }

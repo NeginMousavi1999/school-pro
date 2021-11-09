@@ -54,10 +54,10 @@ public class Main {
         printStar();
 
         System.out.println("AVG of full time : " + teacherService.getFullTimeAvrSalary() + "\nmore than avg:");
-        teacherService.getTeachersWithHigherThanAverageFullTimeTeachersSalaries().forEach(System.out::println);
+        teacherService.getHigherThanAverageFullTime().forEach(System.out::println);
         printStar();
 
-        teacherService.getTeachersWithTenExperienceYear().forEach((i, j) -> System.out.println(i + ":" + j));
+        teacherService.getTenExperienceYear().forEach((i, j) -> System.out.println(i + ":" + j));
         printStar();
 
         //negin part-time schools: 1,1,1
@@ -76,17 +76,14 @@ public class Main {
         t3.getSchool().add(schools.get(4));
         t3.getSchool().add(schools.get(5));
 
-//        teacherService.setTeachers(teachers);
-        teacherService.getPartTimeTeachersWithBSDegreeAndMoreThanTwoSchoolDegree().forEach(System.out::println);
-        printStar();
-//        teacherService.teachers.stream().map(Teacher::getSchool).forEach(System.out::println);
-
-
-        //"razavi", 3 nabayad chap she! chon moalemi nadaratesh
-        teacherService.getSchoolsWithTeacherInSystem().forEach(System.out::println);
+        teacherService.getPartTimeBSMoreThanTwoSchoolDegree().forEach(System.out::println);
         printStar();
 
-        teacherService.returnPairsArrangedSchoolNameAndTeacherList(schools).forEach((i, j) -> System.out.println(i + ":" + j));
+        //"razavi", 3 nabayad print beshe! chon moalemi nadaratesh
+        teacherService.getSchoolsInSystem().forEach(System.out::println);
+        printStar();
+
+        teacherService.getSchoolMappedToTeachers(schools).forEach((i, j) -> System.out.println(i + ":" + j));
     }
 
     private static void printStar() {
